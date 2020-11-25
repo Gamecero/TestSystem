@@ -14,6 +14,7 @@ public class GradeDaoImpl implements GradeDao {
     JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     @Override
     public void addGrade(Grade grade) {
+
         String sql = "insert into grade values(null,?,?,?,now())";
         template.update(sql,grade.getUser_id(),grade.getPaper(),grade.getScore());
     }
